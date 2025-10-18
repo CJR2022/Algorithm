@@ -1,12 +1,12 @@
 def partition(arr,low,high):
     pivot = arr[high]
-    i = low - 1
+    i = low
     for j in range(low, high):
         if arr[j] < pivot:
+            arr[j], arr[i] = arr[i], arr[j]
             i+=1
-            arr[i], arr[j] = arr[j], arr[i]
-    arr[i+1], arr[high] = arr[high], arr[i+1]
-    return i+1
+    arr[high], arr[i] = arr[i], arr[high]
+    return i
 
 def quick_sort(arr,low,high):
     if low < high:
